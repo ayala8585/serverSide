@@ -3,6 +3,7 @@ var router = express.Router();
 const jwt = require("jsonwebtoken");
 var urlToCreate = "mongodb://localhost:27017/substituteSystemDB";
 var url = "mongodb://localhost:27017/";
+var MongoClient = require('mongodb');
 
 const TOKEN_SECRET =
   "F9EACB0E0AB8102E999DF5E3808B215C028448E868333041026C481960EFC126";
@@ -25,10 +26,11 @@ router.get("/createDB", (req, res) => {
 })
 
 
+
 router.get("/createUserColection", () => {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
-    var dbo = db.db("projectDB");
+    var dbo = db.db("substituteSystemDB");
     dbo.createCollection("users", function (err, res) {
       if (err) throw err;
       console.log("Collection created!");
@@ -45,7 +47,7 @@ router.get("/login", function (req, res) {
   //Check the pwd in the server
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
-    var dbo = db.db("projectDB");
+    var dbo = db.db("substituteSystemDB");
     var query = { user };
     dbo.collection("users").find(query).toArray(function (err, result) {
       if (err) throw err;
