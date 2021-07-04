@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 import isEmail from 'validator/lib/isEmail'
-const contact = require('./contact')
+const address = require('./address')
 
 const institutionSchema = new mongoose.Schema({
-    InstitutionSymbol: {
+    institutionSymbol: {
         type: Number,
         required,
         unique
@@ -16,16 +16,18 @@ const institutionSchema = new mongoose.Schema({
         type: String,
         required
     },
-    address: contact,
-    email: {
+    address: address,
+    email: [{
         type: String,
         isEmail,
         required
-    },
-    phoneNumber: {
+    }],
+    phoneNumber: [{
         type: String,
-        required
-    }
+        required,
+        minLength:7,
+        maxLength:10
+    }]
 })
 
 module.exports = mongoose.model('Institution', institutionSchema);

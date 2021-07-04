@@ -1,32 +1,40 @@
 const mongoose = require('mongoose');
 import isEmail from 'validator/lib/isEmail'
 const contactSchema = new mongoose.Schema({
-    personId:{
-        type:String,
+    personId: {
+        type: String,
         required,
         unique
-        },
-    password:{
-        type:String,
+    },
+    password: {
+        type: String,
         required
     },
-    firstName:{
-        type:String,
+    firstName: {
+        type: String,
         required
     },
-    lastName:{
-        type:String,
+    lastName: {
+        type: String,
         required
     },
-    email:{
-        type:String,
+    email: {
+        type: String,
         isEmail,
         required
     },
-    phoneNumber:{
-        type:String,
+    phoneNumber: {
+        type: String,
+        required
+    },
+    birthDate:{
+        type:Date,
+        required
+    },
+    gender:{
+        type:Boolean,
         required
     }
 })
 
-module.exports = mongoose.model('Contact',contactSchema);
+module.exports = mongoose.model('Contact', contactSchema);

@@ -13,14 +13,8 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.9",
-<<<<<<< HEAD
     "mongoose": "^5.12.7",
     "morgan": "~1.9.1",
     "validator": "^13.6.0"
-=======
-    "mongoose": "^5.12.12",
-    "morgan": "~1.9.1",
-    "nodemon": "^2.0.7"
->>>>>>> f6c82f61ab61d7a624b609f8e9ccdad7db0db275
   }
 }
