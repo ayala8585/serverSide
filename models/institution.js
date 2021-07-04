@@ -3,7 +3,7 @@ import isEmail from 'validator/lib/isEmail'
 const contact = require('./contact')
 
 const institutionSchema = new mongoose.Schema({
-    InstitutionSymbol: {
+    institutionSymbol: {
         type: Number,
         required,
         unique
