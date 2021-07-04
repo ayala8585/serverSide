@@ -1,15 +1,19 @@
 var express = require('express');
 var router = express.Router();
 const jwt = require("jsonwebtoken");
-var urlToCreate = "mongodb://localhost:27017/substituteSystemDB";
-var url = "mongodb://localhost:27017/";
+//seminar
+var urlToCreate = "mongodb://srv1:27017/substituteSystemDB";
+var url = "mongodb://srv1:27017/";
+//home
+//var urlToCreate = "mongodb://localhost:27017/substituteSystemDB";
+//var url = "mongodb://localhost:27017/";
 var MongoClient = require('mongodb');
 
 const TOKEN_SECRET =
   "F9EACB0E0AB8102E999DF5E3808B215C028448E868333041026C481960EFC126";
 
-const generateAccessToken = (username) => {
-  return jwt.sign({username}, TOKEN_SECRET);
+const generateAccessToken = (user) => {
+  return jwt.sign(user, TOKEN_SECRET);
 };
 
 router.get("/createDB", (req, res) => {
@@ -56,7 +60,7 @@ router.get("/login", function (req, res) {
       }
       db.close();
       if (result[0].password = password) {
-        const token = generateAccessToken(user);
+        const token = generateAccessToken(result[0]);
         console.log("token", token);
         return res.json({ token }).send();
       } else {
