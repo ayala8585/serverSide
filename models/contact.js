@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-import isEmail from 'validator/lib/isEmail'
+
+import address from "./address";
+import isEmail from 'validator/lib/isEmail';
+
 const contactSchema = new mongoose.Schema({
     personId: {
         type: String,
@@ -34,7 +37,8 @@ const contactSchema = new mongoose.Schema({
     gender:{
         type:Boolean,
         required
-    }
+    },
+    address:address
 })
 
 module.exports = mongoose.model('Contact', contactSchema);
