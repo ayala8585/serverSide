@@ -1,4 +1,6 @@
+
 const mongoose = require('mongoose')
+autoIncrement = require('mongoose-auto-increment');
 
 class db {
 
@@ -13,6 +15,7 @@ class db {
         }
 
         let url = "mongodb+srv://Ayala:aylhe@substitutesystem.lwf0k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+        
         mongoose.connect(url, connectionParams).then((connection) => {
             autoIncrement.initialize(connection);
 
