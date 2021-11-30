@@ -5,9 +5,6 @@ const addressSchema = new mongoose.Schema({
         type: String,
         required
     },
-    neighborhood: {
-        type: String,
-    },
     Street: {
         type: String,
         required

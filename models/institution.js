@@ -9,10 +9,6 @@ const institutionSchema = new mongoose.Schema({
     required,
     unique,
   },
-  password: {
-    type: String,
-    required,
-  },
   name: {
     type: String,
     required,
@@ -37,6 +33,23 @@ const institutionSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Contact",
     required,
+  },
+  requirements: {
+    experience: {
+      type: Number,
+    },
+    certificate: {
+      type: Boolean,
+    },
+    minAge: {
+      type: Number,
+    },
+    gender: {
+      type: "MALE" | "FEMALE",
+    },
+    BJGraduate: {
+      type: Boolean,
+    },
   },
 });
 

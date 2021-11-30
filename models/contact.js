@@ -38,6 +38,10 @@ const contactSchema = new mongoose.Schema({
         type:Boolean,
         required
     },
+    roles:[{
+        type:"TEACHER"|"SUBSTITUTE"|"MANAGER",
+        required
+    }],
     address:address
 })
 
