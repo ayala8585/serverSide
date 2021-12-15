@@ -1,12 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const professionSchema = new mongoose.Schema({
-
-    name: {
-        type: String,
-        required,
-        unique
-    }
-})
-
-module.exports = mongoose.model('Profession', professionSchema);
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+});
+module.exports = mongoose.model("Profession", professionSchema);

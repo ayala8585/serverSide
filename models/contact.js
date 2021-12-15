@@ -1,48 +1,49 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-import address from "./address";
-import isEmail from 'validator/lib/isEmail';
+const address = require("./address");
+const isEmail = require("validator/lib/isEmail");
 
 const contactSchema = new mongoose.Schema({
-    personId: {
-        type: String,
-        required,
-        unique
+  personId: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    isEmail,
+    required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  birthDate: {
+    type: Date,
+    // required: true,
+  },
+  gender: {
+    type: Boolean,
+    required: true,
+  },
+  roles: [
+    {
+      type: "TEACHER" | "SUBSTITUTE" | "MANAGER",
     },
-    password: {
-        type: String,
-        required
-    },
-    firstName: {
-        type: String,
-        required
-    },
-    lastName: {
-        type: String,
-        required
-    },
-    email: {
-        type: String,
-        isEmail,
-        required
-    },
-    phoneNumber: {
-        type: String,
-        required
-    },
-    birthDate:{
-        type:Date,
-        required
-    },
-    gender:{
-        type:Boolean,
-        required
-    },
-    roles:[{
-        type:"TEACHER"|"SUBSTITUTE"|"MANAGER",
-        required
-    }],
-    address:address
-})
+  ],
+  address: address,
+});
 
-module.exports = mongoose.model('Contact', contactSchema);
+module.exports = mongoose.model("Contact", contactSchema);

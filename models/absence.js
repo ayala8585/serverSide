@@ -1,27 +1,29 @@
-const mongoose = require('mongoose');
-const lesson = require('./lessonAbsence')
+const mongoose = require("mongoose");
+const Lesson = require("./lessonAbsence");
 
 const absenceSchema = new mongoose.Schema({
-    teacherId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Teacher',
-        required
+  teacherId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Teacher",
+    required,
+  },
+  institutionId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Institution",
+    required,
+  },
+  lessons: [Lesson],
+  optionalSubstitutes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Substitute",
+      required,
     },
-    institutionId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Institution',
-        required
-    },
-    lessons:[lesson],
-    optionalSubstitutes: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'Substitute',
-        required
-    }],
-    substitute:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'Substitute'
-    }
-})
+  ],
+  substitute: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Substitute",
+  },
+});
 
-module.exports = mongoose.model('Absence', absenceSchema);
+module.exports = mongoose.model("Absence", absenceSchema);

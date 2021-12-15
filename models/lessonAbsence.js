@@ -1,41 +1,40 @@
-const mongoose = require('mongoose');
-const profession = require('./profession')
+const mongoose = require("mongoose");
 
 const lessonAbsenceSchema = new mongoose.Schema({
   teacherId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Teacher",
-    required,
+    required: true,
   },
   instiitution: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Institution",
-    required,
+    required: true,
   },
   grade: {
     type: Number,
-    required,
+    required: true,
   },
   gradeNumber: {
     type: Number,
-    required,
+    required: true,
   },
   profession: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Profession",
-    required,
+    required: true,
   },
   date: {
     type: Date,
-    required,
+    required: true,
   },
   from: {
     type: String,
-    required,
+    required: true,
   },
   to: {
     type: String,
-    required,
+    required: true,
   },
   substituteSuggestion: [
     {
@@ -49,4 +48,4 @@ const lessonAbsenceSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('LessonAbsence', lessonAbsenceSchema);
+module.exports = mongoose.model("LessonAbsence", lessonAbsenceSchema);

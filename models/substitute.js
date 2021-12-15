@@ -4,16 +4,16 @@ const substituteSchema = new mongoose.Schema({
   contacId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Contact",
-    required,
+    required: true,
     unique,
   },
   seniority: {
     type: Number,
-    required,
+    required: true,
   },
   isBjGraduate: {
     type: Boolean,
-    required,
+    required: true,
   },
   teachingCertificatePath: {
     type: String,

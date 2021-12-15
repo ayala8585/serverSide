@@ -6,25 +6,25 @@ import isEmail from "validator/lib/isEmail";
 const institutionSchema = new mongoose.Schema({
   institutionSymbol: {
     type: Number,
-    required,
-    unique,
+    required: true,
+    unique: true,
   },
   name: {
     type: String,
-    required,
+    required: true,
   },
   address: address,
   email: [
     {
       type: String,
       isEmail,
-      required,
+      required: true,
     },
   ],
   phoneNumber: [
     {
       type: String,
-      required,
+      required: true,
       minLength: 7,
       maxLength: 10,
     },
@@ -32,7 +32,7 @@ const institutionSchema = new mongoose.Schema({
   managerId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Contact",
-    required,
+    required: true,
   },
   requirements: {
     experience: {

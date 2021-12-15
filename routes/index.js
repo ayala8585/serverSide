@@ -74,5 +74,4 @@ router.get("/login", function (req, res) {
 router.post("/signup", function (req, res) {
   const { user, password } = req.body;
 });
-
-module.exports = router;
+export default router;
