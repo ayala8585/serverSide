@@ -40,7 +40,7 @@ const contactSchema = new mongoose.Schema({
   },
   roles: [
     {
-      type: "TEACHER" | "SUBSTITUTE" | "MANAGER",
+      type: String//"TEACHER" | "SUBSTITUTE" | "MANAGER",
     },
   ],
   address: address,

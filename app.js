@@ -5,6 +5,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
+const cors= require("cors");
 
 const teacherRouter =require("./routes/teacher/index");
 
@@ -18,6 +19,7 @@ async function connect() {
 }
 
 connect();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
