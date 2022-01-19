@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const address = require("./address");
+const isEmail = require("validator/lib/isEmail");
 
-import isEmail from "validator/lib/isEmail";
+const address = require("./address");
 
 const institutionSchema = new mongoose.Schema({
   institutionSymbol: {

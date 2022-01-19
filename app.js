@@ -4,9 +4,10 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const cors= require("cors");
+const cors = require("cors");
 
-const teacherRouter =require("./routes/teacher/index");
+const teacherRouter = require("./routes/teacher/index");
+const principalRouter = require("./routes/principal/index");
 
 // var indexRouter = require('./routes/index');
 
@@ -26,8 +27,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/teacher",teacherRouter);
-
+app.use("/teacher", teacherRouter);
+app.use("/principal", principalRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
