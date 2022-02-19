@@ -8,6 +8,7 @@ const cors = require("cors");
 
 const teacherRouter = require("./routes/teacher/index");
 const principalRouter = require("./routes/principal/index");
+const substituteRouter = require("./routes/substitute/index");
 
 // var indexRouter = require('./routes/index');
 
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/teacher", teacherRouter);
 app.use("/principal", principalRouter);
+app.use("/substitute", substituteRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

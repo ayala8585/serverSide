@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const substituteSchema = new mongoose.Schema({
-  contacId: {
+  contactId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Contact",
     required: true,
-    unique,
+    unique: true,
   },
   seniority: {
     type: Number,
@@ -19,11 +19,15 @@ const substituteSchema = new mongoose.Schema({
     type: String,
   },
   professions: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Profession",
-    },
+    // {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "Profession",
+    // },
   ],
+  institutions: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Institution",
+  }],
 });
 
 module.exports = mongoose.model("Substitute", substituteSchema);
